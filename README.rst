@@ -2,7 +2,7 @@
 
 |build-status| |coverage| |license| |wheel| |pyversion| |pyimp| |ocbackerbadge| |ocsponsorbadge|
 
-:Version: 4.2.1 (latentcall)
+:Version: 4.2.1 (latentcall) - Python 3.7 fix
 :Web: http://celeryproject.org/
 :Download: https://pypi.org/project/celery/
 :Source: https://github.com/celery/celery/
@@ -10,6 +10,25 @@
   python, distributed, actors
 
 --
+
+About this fork
+===============
+
+Celery 4.2 suffers from a simple issue in Python 3.7 due to the use of
+``async`` as a module name. This issue was fixed in `this merged PR`_ 
+but maintainers `don't want to`_ make a 4.2 bugfix release for this.
+
+This fork simply backports the fix to Celery 4.2.1, and can be used
+by adding:
+
+::
+
+    git+https://github.com/bitmario/celery-4.2-python3.7.git@v4.2.1-py37#egg=celery
+
+To your ``requirements.txt``.
+
+.. _`this merged PR`: https://github.com/celery/celery/pull/4852 
+.. _`don't want to`: https://github.com/celery/celery/issues/4500#issuecomment-410506404
 
 What's a Task Queue?
 ====================
@@ -40,9 +59,9 @@ in such a way that the client enqueues an URL to be requested by a worker.
 What do I need?
 ===============
 
-Celery version 4.2 runs on,
+This fork of Celery version 4.2 runs on,
 
-- Python (2.7, 3.4, 3.5, 3.6)
+- Python (2.7, 3.4, 3.5, 3.6, 3.7)
 - PyPy (5.8)
 
 
